@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.medpay.payment.ui.main.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_paymentInputFragment"
+            app:destination="@id/paymentInputFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slde_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_paymentDetailsFragment"
+            app:destination="@id/paymentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentInputFragment"
+        android:name="com.medpay.payment.ui.main.fragments.PaymentInputFragment"
+        android:label="PaymentInputFragment">
+        <argument
+            android:name="phoneNumber"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="name"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_paymentInputFragment_to_inProgressFragment"
+            app:popUpTo="@id/mainFragment"
+            app:destination="@id/inProgressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inProgressFragment"
+        android:name="com.medpay.payment.ui.main.fragments.InProgressFragment"
+        android:label="InProgressFragment" >
+        <argument
+            android:name="transactionId"
+            app:argType="com.medpay.payment.ui.main.databinding.PaymentInputModel" />
+        <action
+            app:popUpTo="@id/mainFragment"
+            android:id="@+id/action_inProgressFragment_to_paymentDetailsFragment"
+            app:destination="@id/paymentDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentDetailsFragment"
+        android:name="com.medpay.payment.ui.main.fragments.PaymentDetailsFragment"
+        android:label="fragment_payment_details"
+        tools:layout="@layout/fragment_payment_details" >
+        <argument
+            android:name="transactionId"
+            android:defaultValue=""
+            app:argType="string"
+            />
+    </fragment>
+</navigation>
