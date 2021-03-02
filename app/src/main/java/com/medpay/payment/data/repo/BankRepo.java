@@ -1,7 +1,5 @@
 package com.medpay.payment.data.repo;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -11,6 +9,7 @@ import com.medpay.payment.data.db.entities.UserData;
 import com.medpay.payment.data.db.models.TransactionAndUser;
 import com.medpay.payment.ui.main.databinding.PaymentInputModel;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,14 +48,18 @@ public class BankRepo {
     }
 
     public void successTransaction(PaymentInputModel transaction) {
-        updateTransaction(transaction,true);
+        updateTransaction(transaction, true);
     }
 
     public LiveData<List<TransactionAndUser>> fetchTransaction() {
-        return appDatabase.getTransactionAndUserDao().fetchTransaction();
+        return appDatabase.getTransactionAndUserDao().fetchTransactionLive();
     }
 
     public LiveData<TransactionAndUser> fetchTransaction(String transactionId) {
         return appDatabase.getTransactionAndUserDao().fetchTransaction(transactionId);
+    }
+
+    public LiveData<List<TransactionAndUser>> fetchAllUserData() {
+        return  appDatabase.getTransactionAndUserDao().fetchTransactionWRTUser();
     }
 }

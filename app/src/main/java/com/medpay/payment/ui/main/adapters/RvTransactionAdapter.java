@@ -15,6 +15,7 @@ import com.medpay.payment.data.db.models.TransactionAndUser;
 import com.medpay.payment.databinding.TransactionCanceledItemLayoutBinding;
 import com.medpay.payment.databinding.TransactionSuccessItemLayoutBinding;
 import com.medpay.payment.ui.main.fragments.MainFragmentDirections;
+import com.medpay.payment.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,11 +87,12 @@ public class RvTransactionAdapter extends RecyclerView.Adapter<RvTransactionAdap
             retry.setOnClickListener(v -> {
                 MainFragmentDirections.ActionMainFragmentToPaymentInputFragment action
                         = MainFragmentDirections.actionMainFragmentToPaymentInputFragment();
-
                 action.setPhoneNumber(transactionAndUser.getPhoneNumber());
                 action.setAmount(transactionAndUser.getAmountString());
                 action.setName(transactionAndUser.getName());
-                Navigation.findNavController(itemView).navigate(action);
+                Navigation.findNavController(itemView)
+                        .navigate(action);
+
             });
 
         }

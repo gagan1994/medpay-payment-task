@@ -10,6 +10,15 @@ public class TransactionAndUser {
     private Date transactionTime;
     double amount;
     boolean isSuccess;
+    int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;

@@ -7,4 +7,5 @@
     <string name="on_board_heading">Payment</string>
     <string name="on_board_contents">There is so much power at your fingertips! transfer money with few touches..😉</string>
     <string name="empty_transaction">No history of Transaction yet!, Make transaction by sending money to your friends</string>
+    <string name="extended_fab_recent_desc">All Users</string>
 </resources>

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_mainFragment_to_paymentDetailsFragment"
             app:destination="@id/paymentDetailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allUsersFragment"
+            app:destination="@id/allUsersFragment" />
     </fragment>
     <fragment
         android:id="@+id/paymentInputFragment"
@@ -64,5 +67,13 @@
             android:defaultValue=""
             app:argType="string"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/allUsersFragment"
+        android:name="com.medpay.payment.ui.main.fragments.AllUsersFragment"
+        android:label="AllUsersFragment" >
+        <action
+            android:id="@+id/action_allUsersFragment_to_paymentInputFragment"
+            app:destination="@id/paymentInputFragment" />
     </fragment>
 </navigation>
