@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Payment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="extended_fab_payment_desc">Send Money</string>
+    <string name="extended_fab_pay_desc">Send</string>
+    <string name="on_board_heading">Payment</string>
+    <string name="on_board_contents">There is so much power at your fingertips! transfer money with few touches..😉</string>
+    <string name="empty_transaction">No history of Transaction yet!, Make transaction by sending money to your friends</string>
+</resources>

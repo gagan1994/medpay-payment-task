@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="transactionModel"
+            type="com.medpay.payment.data.db.models.TransactionAndUser" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_500"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".ui.main.fragments.PaymentDetailsFragment">
+
+        <ImageView
+            android:id="@+id/iv_status"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/ic_baseline_check_circle">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tv_status"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Success"
+            android:textAlignment="center"
+            android:textColor="@color/success">
+
+        </TextView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="8dp"
+            android:elevation="10dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{transactionModel.amountString + ` \u20B9`}"
+                    android:textAlignment="center"
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{transactionModel.displayName}"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Phone number: `+ transactionModel.phoneNumber}"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{`At `+transactionModel.transactionTimeString}"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
