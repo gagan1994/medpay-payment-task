@@ -1,6 +1,8 @@
 package com.medpay.payment.ui.main.adapters;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,10 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.medpay.payment.R;
 import com.medpay.payment.data.db.models.TransactionAndUser;
 import com.medpay.payment.databinding.UserListItemBinding;
-import com.medpay.payment.ui.main.fragments.AllUsersFragment;
 import com.medpay.payment.ui.main.fragments.AllUsersFragmentDirections;
-import com.medpay.payment.ui.main.fragments.MainFragmentDirections;
-import com.medpay.payment.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +56,11 @@ public class RvUserAdapter extends RecyclerView.Adapter<RvUserAdapter.VH> {
 
         public void setData(TransactionAndUser transactionAndUser) {
             binding.setUsers(transactionAndUser);
-            binding.btnPay.setOnClickListener(v->{
+            binding.tvUserName.setVisibility(TextUtils.isEmpty(transactionAndUser.getName()) ? View.GONE : View.VISIBLE);
+            binding.btnPay.setOnClickListener(v -> {
                 AllUsersFragmentDirections.ActionAllUsersFragmentToPaymentInputFragment action
                         = AllUsersFragmentDirections.actionAllUsersFragmentToPaymentInputFragment();
                 action.setPhoneNumber(transactionAndUser.getPhoneNumber());
-                action.setAmount(transactionAndUser.getAmountString());
                 action.setName(transactionAndUser.getName());
                 Navigation.findNavController(itemView)
                         .navigate(action);

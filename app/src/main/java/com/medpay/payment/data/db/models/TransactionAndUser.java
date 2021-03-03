@@ -73,7 +73,7 @@ public class TransactionAndUser {
     }
 
     public String getAmountString() {
-        return String.format("%.2f", amount);
+        return "\u20B9 "+String.format("%.2f", amount);
     }
 
     public String getTransactionTimeString() {

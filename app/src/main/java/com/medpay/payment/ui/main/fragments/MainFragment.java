@@ -66,6 +66,9 @@ public class MainFragment extends Fragment {
     private void updateUi() {
         if(fragmentMainBinding.rvTransactions.getAdapter().getItemCount() == 0){
             showEmptySnackbar();
+            fragmentMainBinding.fabRecent.setVisibility(View.GONE);
+        }else {
+            fragmentMainBinding.fabRecent.setVisibility(View.VISIBLE);
         }
     }
     private void showEmptySnackbar() {
