@@ -1,10 +1,8 @@
 package com.medpay.payment.ui.main;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.medpay.payment.data.db.entities.Transactions;
 import com.medpay.payment.data.db.models.TransactionAndUser;
 import com.medpay.payment.data.repo.BankRepo;
 import com.medpay.payment.ui.main.databinding.PaymentInputModel;
@@ -39,5 +37,9 @@ public class MainViewModel extends ViewModel {
 
     public LiveData<TransactionAndUser> getTransaction(String transactionId) {
         return repo.fetchTransaction(transactionId);
+    }
+
+    public LiveData<List<TransactionAndUser>> fetchAllUserData() {
+       return repo.fetchAllUserData();
     }
 }

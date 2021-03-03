@@ -10,6 +10,15 @@ public class TransactionAndUser {
     private Date transactionTime;
     double amount;
     boolean isSuccess;
+    int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -64,7 +73,7 @@ public class TransactionAndUser {
     }
 
     public String getAmountString() {
-        return String.format("%.2f", amount);
+        return "\u20B9 "+String.format("%.2f", amount);
     }
 
     public String getTransactionTimeString() {

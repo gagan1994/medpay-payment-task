@@ -58,11 +58,17 @@ public class MainFragment extends Fragment {
         fragmentMainBinding.fabSendMoney.setOnClickListener(v -> Navigation
                 .findNavController(getView())
                 .navigate(R.id.action_mainFragment_to_paymentInputFragment));
+        fragmentMainBinding.fabRecent.setOnClickListener(v -> Navigation
+                .findNavController(getView())
+                .navigate(R.id.action_mainFragment_to_allUsersFragment));
     }
 
     private void updateUi() {
         if(fragmentMainBinding.rvTransactions.getAdapter().getItemCount() == 0){
             showEmptySnackbar();
+            fragmentMainBinding.fabRecent.setVisibility(View.GONE);
+        }else {
+            fragmentMainBinding.fabRecent.setVisibility(View.VISIBLE);
         }
     }
     private void showEmptySnackbar() {

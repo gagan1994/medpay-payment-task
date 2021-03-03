@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="users"
+            type="com.medpay.payment.data.db.models.TransactionAndUser" />
+    </data>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_weight="0.2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:drawableLeft="@drawable/ic_users"
+                        android:id="@+id/tv_user_name"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{users.name}"
+                        />
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                        android:text="@{`+91 `+users.phoneNumber}"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@drawable/divider"
+                        android:layout_height="1dp">
+
+                    </View>
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                        android:text="Total you tried to send "
+                        />
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                        android:text="@{users.amountString}"
+                        />
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                        android:text="Recent transaction"
+                        />
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                        android:text="@{users.transactionTimeString}"
+                        />
+                </LinearLayout>
+                <Button
+                    android:layout_weight="0.8"
+                    android:id="@+id/btn_pay"
+                    android:textAllCaps="false"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Pay"
+                    />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

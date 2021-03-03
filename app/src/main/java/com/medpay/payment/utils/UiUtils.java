@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.View;
 
 import com.medpay.payment.R;
+import com.medpay.payment.data.db.models.TransactionAndUser;
+import com.medpay.payment.ui.main.fragments.MainFragmentDirections;
 import com.wooplr.spotlight.SpotlightView;
 
 public class UiUtils {
@@ -27,4 +29,5 @@ public class UiUtils {
                 .dismissOnBackPress(true)
                 .show();
     }
+
 }
